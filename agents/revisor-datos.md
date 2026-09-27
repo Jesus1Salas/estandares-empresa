@@ -7,14 +7,11 @@ permissions:
     - capability: fs_read
       match: ["**/*"]
       effect: allow
-    # Solo puede escribir el informe de revisión, con confirmación.
+    # Solo puede escribir el informe de revisión (sin regla deny catch-all: al no
+    # permitir otras rutas, no modifica el código ni la configuración que audita).
     - capability: fs_write
       match: ["qa/revisiones/**", "docs/revisiones/**"]
-      effect: ask
-    # Nunca modifica el código ni la configuración que audita.
-    - capability: fs_write
-      match: ["**/*"]
-      effect: deny
+      effect: allow
 ---
 
 # Agente Revisor de Datos

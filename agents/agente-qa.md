@@ -11,14 +11,11 @@ permissions:
     - capability: fs_read
       match: ["**/*"]
       effect: allow
-    # Escribe solo los entregables de QA, con confirmación.
+    # Escribe solo los entregables de QA (sin regla deny catch-all: al no permitir
+    # otras rutas, no escribe fuera de qa/). No modifica el código bajo prueba.
     - capability: fs_write
       match: ["qa/**"]
-      effect: ask
-    # No modifica el código bajo prueba ni la configuración.
-    - capability: fs_write
-      match: ["**/*"]
-      effect: deny
+      effect: allow
 ---
 
 # Agente QA

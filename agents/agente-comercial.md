@@ -11,14 +11,11 @@ permissions:
     - capability: fs_read
       match: ["**/*"]
       effect: allow
-    # Escribe solo los entregables comerciales, con confirmación.
+    # Escribe solo los entregables comerciales (sin regla deny catch-all: al no
+    # permitir otras rutas, no toca configuración ni código fuera de comercial/).
     - capability: fs_write
       match: ["comercial/**"]
-      effect: ask
-    # No toca configuración ni código fuera de los entregables.
-    - capability: fs_write
-      match: ["**/*"]
-      effect: deny
+      effect: allow
 ---
 
 # Agente Comercial
