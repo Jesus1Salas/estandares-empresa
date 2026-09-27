@@ -30,19 +30,61 @@ estandares-empresa/
 > Según la guía (Opción A), este repo puede crecer con `mcp/` y `plantillas/`.
 > Hoy contiene `steering/`, `skills/`, `agents/` y `hooks/`.
 
-## Contenido actual
+## Contenido por departamento
 
-- **24 steering** — global/técnico (AWS, seguridad, patrones, commits,
-  CloudFormation, diagramas), datos (ingeniería y calidad), gestión de proyectos,
-  comercial y QA.
-- **7 skills** — manual técnico, comercial (propuesta, cotización, minuta) y QA
-  (casos de prueba, reporte de ejecución, matriz de trazabilidad).
-- **3 agentes** — comercial (orquesta skills comerciales), QA (orquesta skills de
-  QA), revisor de datos (audita código de ingeniería de datos).
-- **3 hooks** — cargar contexto (SessionStart), generar contexto de sesión (Stop)
-  y log de trabajo (PostToolUse).
+**37 artefactos** en total: 24 steering, 7 skills, 3 agentes y 3 hooks.
 
-El detalle vive en [`catalog.json`](./catalog.json).
+| Departamento | Total | Steering | Skills | Agentes | Hooks |
+|--------------|:-----:|:--------:|:------:|:-------:|:-----:|
+| Comercial | 11 | 7 | 3 | 1 | — |
+| QA | 12 | 8 | 3 | 1 | — |
+| Datos | 3 | 2 | — | 1 | — |
+| Global / Técnico | 8 | 4 | 1 | — | 3 |
+| Infraestructura | 2 | 2 | — | — | — |
+| Gestión de proyectos | 1 | 1 | — | — | — |
+| **Total** | **37** | **24** | **7** | **3** | **3** |
+
+### Comercial (11)
+
+- **Steering (7):** perfil de empresa y servicios · tono y estilo comercial ·
+  estructura de propuestas · política de precios y cotización · legal y
+  cumplimiento · datos y privacidad · glosario y nomenclatura.
+- **Skills (3):** propuesta comercial · cotización · minuta de reunión.
+- **Agente (1):** agente comercial (orquesta las skills comerciales).
+
+### QA (12)
+
+- **Steering (8):** estrategia de pruebas · definición de hecho y aceptación ·
+  convenciones de casos de prueba · gestión de defectos · automatización de
+  pruebas · datos y entornos de prueba · criterios de entrada/salida · QA no
+  funcional.
+- **Skills (3):** generador de casos de prueba · reporte de ejecución · matriz de
+  trazabilidad.
+- **Agente (1):** agente QA (orquesta las skills de QA).
+
+### Datos (3)
+
+- **Steering (2):** ingeniería de datos / ETL · calidad de datos.
+- **Agente (1):** revisor de datos (audita el código de ingeniería de datos).
+
+### Global / Técnico (8)
+
+- **Steering (4):** patrones de programación · commits y pull requests ·
+  arquitectura AWS · seguridad y DevSecOps.
+- **Skill (1):** manual técnico-operativo.
+- **Hooks (3):** cargar contexto (SessionStart) · generar contexto de sesión
+  (Stop) · log de trabajo (PostToolUse).
+
+### Infraestructura (2)
+
+- **Steering (2):** CloudFormation · diagramas de arquitectura.
+
+### Gestión de proyectos (1)
+
+- **Steering (1):** gestión de proyectos (Scrum).
+
+El detalle completo (id, versión, rutas, obligatoriedad) vive en
+[`catalog.json`](./catalog.json).
 
 ## El catálogo (`catalog.json`)
 
