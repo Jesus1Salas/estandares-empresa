@@ -15,6 +15,23 @@ artefactos usan **versionado semántico** individual en `catalog.json`:
 
 ---
 
+## [1.3.0] — 2026-09-26
+
+Renombra el departamento **`datos` → `desarrollo`** (el `ambito` y el prefijo de
+`id` de sus artefactos). Las rutas y nombres de archivo no cambian.
+
+### Cambiado
+
+- `steering.datos.ingenieria-datos` → `steering.desarrollo.ingenieria-datos`.
+- `steering.datos.calidad-datos` → `steering.desarrollo.calidad-datos`.
+- `agent.datos.revisor-datos` → `agent.desarrollo.revisor-datos`.
+- Ámbito de los tres artefactos: `datos` → `desarrollo`.
+
+> Nota: los términos técnicos "ingeniería de datos", "calidad de datos",
+> "data-product", etc. se conservan; solo cambia el nombre del **departamento**.
+
+---
+
 ## [1.2.0] — 2026-09-26
 
 Añade configuraciones MCP de uso general del desarrollador (39 artefactos:
@@ -120,6 +137,7 @@ Versión inicial del catálogo con 31 artefactos (24 steering + 7 skills).
 - Varios artefactos conservan marcadores `⚠️ COMPLETAR` para datos propios de la
   consultora (identidad, tarifas, rol aprobador de QA, ruta documental de proyectos).
 
+[1.3.0]: #130--2026-09-26
 [1.2.0]: #120--2026-09-26
 [1.1.0]: #110--2026-09-26
 [1.0.0]: #100--2026-09-26

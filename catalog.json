@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "actualizado": "2026-09-26",
   "descripcion": "Catalogo de estandares de la consultora (AWS + Python). Indice de steering, skills, agentes, hooks y configuraciones MCP disponibles para consultar y materializar en los proyectos consumidores.",
   "artefactos": [
@@ -76,9 +76,9 @@
       "palabras_clave": ["seguridad", "devsecops", "iam", "secretos", "cifrado", "kms", "sast", "sca", "vulnerabilidades"]
     },
     {
-      "id": "steering.datos.ingenieria-datos",
+      "id": "steering.desarrollo.ingenieria-datos",
       "tipo": "steering",
-      "ambito": "datos",
+      "ambito": "desarrollo",
       "obligatoriedad": "obligatorio",
       "version": "1.0.0",
       "ruta": "steering/ingenieria-datos.md",
@@ -88,9 +88,9 @@
       "palabras_clave": ["datos", "etl", "pyspark", "glue", "parquet", "capas", "medallion", "pipeline", "particionado"]
     },
     {
-      "id": "steering.datos.calidad-datos",
+      "id": "steering.desarrollo.calidad-datos",
       "tipo": "steering",
-      "ambito": "datos",
+      "ambito": "desarrollo",
       "obligatoriedad": "obligatorio",
       "version": "1.0.0",
       "ruta": "steering/calidad-datos.md",
@@ -400,9 +400,9 @@
       "palabras_clave": ["agente", "qa", "casos", "ejecucion", "trazabilidad", "orquestador"]
     },
     {
-      "id": "agent.datos.revisor-datos",
+      "id": "agent.desarrollo.revisor-datos",
       "tipo": "agent",
-      "ambito": "datos",
+      "ambito": "desarrollo",
       "obligatoriedad": "recomendado",
       "version": "1.0.0",
       "ruta": "agents/revisor-datos.md",

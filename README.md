@@ -39,7 +39,7 @@ estandares-empresa/
 |--------------|:-----:|:--------:|:------:|:-------:|:-----:|:---:|
 | Comercial | 11 | 7 | 3 | 1 | — | — |
 | QA | 12 | 8 | 3 | 1 | — | — |
-| Datos | 3 | 2 | — | 1 | — | — |
+| Desarrollo | 3 | 2 | — | 1 | — | — |
 | Global / Técnico | 10 | 4 | 1 | — | 3 | 2 |
 | Infraestructura | 2 | 2 | — | — | — | — |
 | Gestión de proyectos | 1 | 1 | — | — | — | — |
@@ -63,7 +63,7 @@ estandares-empresa/
   trazabilidad.
 - **Agente (1):** agente QA (orquesta las skills de QA).
 
-### Datos (3)
+### Desarrollo (3)
 
 - **Steering (2):** ingeniería de datos / ETL · calidad de datos.
 - **Agente (1):** revisor de datos (audita el código de ingeniería de datos).
@@ -99,7 +99,7 @@ y describe:
 |-------|-------------|
 | `id` | Identificador estable, clave del artefacto |
 | `tipo` | `steering` \| `skill` \| `agent` \| `hook` \| `mcp` (a futuro `plantilla`, `doc`) |
-| `ambito` | `global` \| `infra` \| `datos` \| `qa` \| `comercial` \| `pmo` |
+| `ambito` | `global` \| `infra` \| `desarrollo` \| `qa` \| `comercial` \| `pmo` |
 | `obligatoriedad` | `obligatorio` \| `recomendado` \| `opcional` |
 | `version` | Versión semántica propia del artefacto |
 | `ruta` | Dónde está en este repo |
