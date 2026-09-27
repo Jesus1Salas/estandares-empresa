@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "uvx",
+      "args": ["mcp-server-github@latest"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

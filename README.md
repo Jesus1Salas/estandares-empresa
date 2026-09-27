@@ -22,27 +22,28 @@ estandares-empresa/
 ├── skills/            Procedimientos repetibles (carpeta por skill)
 ├── agents/            Agentes dedicados reutilizables (Markdown)
 ├── hooks/             Automatizaciones por evento (JSON)
+├── mcp/               Configuraciones MCP de uso general (JSON, se fusionan)
 ├── catalog.json       Índice: qué hay, versión, categoría, destino, descripción
 ├── CHANGELOG.md       Historial de cambios de los estándares
 └── README.md          Este archivo
 ```
 
-> Según la guía (Opción A), este repo puede crecer con `mcp/` y `plantillas/`.
-> Hoy contiene `steering/`, `skills/`, `agents/` y `hooks/`.
+> Según la guía (Opción A), este repo puede crecer con `plantillas/`.
+> Hoy contiene `steering/`, `skills/`, `agents/`, `hooks/` y `mcp/`.
 
 ## Contenido por departamento
 
-**37 artefactos** en total: 24 steering, 7 skills, 3 agentes y 3 hooks.
+**39 artefactos** en total: 24 steering, 7 skills, 3 agentes, 3 hooks y 2 MCP.
 
-| Departamento | Total | Steering | Skills | Agentes | Hooks |
-|--------------|:-----:|:--------:|:------:|:-------:|:-----:|
-| Comercial | 11 | 7 | 3 | 1 | — |
-| QA | 12 | 8 | 3 | 1 | — |
-| Datos | 3 | 2 | — | 1 | — |
-| Global / Técnico | 8 | 4 | 1 | — | 3 |
-| Infraestructura | 2 | 2 | — | — | — |
-| Gestión de proyectos | 1 | 1 | — | — | — |
-| **Total** | **37** | **24** | **7** | **3** | **3** |
+| Departamento | Total | Steering | Skills | Agentes | Hooks | MCP |
+|--------------|:-----:|:--------:|:------:|:-------:|:-----:|:---:|
+| Comercial | 11 | 7 | 3 | 1 | — | — |
+| QA | 12 | 8 | 3 | 1 | — | — |
+| Datos | 3 | 2 | — | 1 | — | — |
+| Global / Técnico | 10 | 4 | 1 | — | 3 | 2 |
+| Infraestructura | 2 | 2 | — | — | — | — |
+| Gestión de proyectos | 1 | 1 | — | — | — | — |
+| **Total** | **39** | **24** | **7** | **3** | **3** | **2** |
 
 ### Comercial (11)
 
@@ -67,13 +68,15 @@ estandares-empresa/
 - **Steering (2):** ingeniería de datos / ETL · calidad de datos.
 - **Agente (1):** revisor de datos (audita el código de ingeniería de datos).
 
-### Global / Técnico (8)
+### Global / Técnico (10)
 
 - **Steering (4):** patrones de programación · commits y pull requests ·
   arquitectura AWS · seguridad y DevSecOps.
 - **Skill (1):** manual técnico-operativo.
 - **Hooks (3):** cargar contexto (SessionStart) · generar contexto de sesión
   (Stop) · log de trabajo (PostToolUse).
+- **MCP (2):** GitHub (desarrollo) · DrawIO (diagramas). De uso general, se
+  fusionan en `.kiro/settings/mcp.json` y se bajan bajo demanda.
 
 ### Infraestructura (2)
 
@@ -95,13 +98,13 @@ y describe:
 | Campo | Significado |
 |-------|-------------|
 | `id` | Identificador estable, clave del artefacto |
-| `tipo` | `steering` \| `skill` \| `agent` \| `hook` (a futuro `mcp`, `plantilla`, `doc`) |
+| `tipo` | `steering` \| `skill` \| `agent` \| `hook` \| `mcp` (a futuro `plantilla`, `doc`) |
 | `ambito` | `global` \| `infra` \| `datos` \| `qa` \| `comercial` \| `pmo` |
 | `obligatoriedad` | `obligatorio` \| `recomendado` \| `opcional` |
 | `version` | Versión semántica propia del artefacto |
 | `ruta` | Dónde está en este repo |
 | `destino` | Dónde aterriza en el proyecto consumidor (`.kiro/...`) |
-| `materializable` | Si se puede copiar al proyecto |
+| `materializable` | `true` / `false` si se copia al proyecto; `"merge"` para `mcp` (se fusiona en `.kiro/settings/mcp.json`, no se sobrescribe) |
 | `descripcion` / `palabras_clave` | Ayudan a mapear una pregunta con el artefacto |
 
 **Regla de oro:** ningún artefacto existe si no está en el catálogo. El catálogo se

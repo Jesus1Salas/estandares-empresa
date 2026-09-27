@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "drawio": {
+      "command": "uvx",
+      "args": ["mcp-server-drawio@latest"],
+      "env": { "FASTMCP_LOG_LEVEL": "ERROR" },
+      "disabled": false,
+      "autoApprove": ["open_drawio_xml", "open_drawio_mermaid", "search_shapes"]
+    }
+  }
+}

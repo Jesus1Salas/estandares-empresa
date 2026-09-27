@@ -1,7 +1,7 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "actualizado": "2026-09-26",
-  "descripcion": "Catalogo de estandares de la consultora (AWS + Python). Indice de steering, skills, agentes y hooks disponibles para consultar y materializar en los proyectos consumidores.",
+  "descripcion": "Catalogo de estandares de la consultora (AWS + Python). Indice de steering, skills, agentes, hooks y configuraciones MCP disponibles para consultar y materializar en los proyectos consumidores.",
   "artefactos": [
     {
       "id": "steering.global.programming-patterns",
@@ -446,6 +446,30 @@
       "materializable": true,
       "descripcion": "Hook PostToolUse que registra en .kiro/CHANGELOG-trabajo.md una linea con timestamp, herramienta y archivo cada vez que se escribe un archivo (fs_write/str_replace/fs_append).",
       "palabras_clave": ["hook", "log", "changelog", "posttooluse", "bitacora", "auditoria"]
+    },
+    {
+      "id": "mcp.global.github",
+      "tipo": "mcp",
+      "ambito": "global",
+      "obligatoriedad": "opcional",
+      "version": "1.0.0",
+      "ruta": "mcp/github.json",
+      "destino": ".kiro/settings/mcp.json",
+      "materializable": "merge",
+      "descripcion": "Configuracion MCP de GitHub para desarrollo del usuario (crear repos, PRs, issues). Requiere GITHUB_PERSONAL_ACCESS_TOKEN por variable de entorno. Se FUSIONA en .kiro/settings/mcp.json, no se sobrescribe. Independiente del MCP 'estandares' del consultor. Se baja bajo demanda.",
+      "palabras_clave": ["mcp", "github", "desarrollo", "token", "repos", "pull request"]
+    },
+    {
+      "id": "mcp.global.drawio",
+      "tipo": "mcp",
+      "ambito": "global",
+      "obligatoriedad": "opcional",
+      "version": "1.0.0",
+      "ruta": "mcp/drawio.json",
+      "destino": ".kiro/settings/mcp.json",
+      "materializable": "merge",
+      "descripcion": "Configuracion MCP de DrawIO para generar y editar diagramas. Se FUSIONA en .kiro/settings/mcp.json, no se sobrescribe. Se baja bajo demanda.",
+      "palabras_clave": ["mcp", "drawio", "diagramas", "arquitectura"]
     }
   ]
 }

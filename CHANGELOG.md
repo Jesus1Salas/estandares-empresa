@@ -15,6 +15,29 @@ artefactos usan **versionado semántico** individual en `catalog.json`:
 
 ---
 
+## [1.2.0] — 2026-09-26
+
+Añade configuraciones MCP de uso general del desarrollador (39 artefactos:
+24 steering + 7 skills + 3 agentes + 3 hooks + 2 MCP).
+
+### Añadido
+
+**Configuraciones MCP** (tipo `mcp`, se **fusionan** en `.kiro/settings/mcp.json`)
+- `mcp.global.github` (1.0.0) — GitHub MCP para desarrollo (repos, PRs, issues); token por variable de entorno `GITHUB_PERSONAL_ACCESS_TOKEN`.
+- `mcp.global.drawio` (1.0.0) — DrawIO MCP para generar/editar diagramas.
+
+### Notas
+
+- Estos MCP son de **uso general del desarrollador** y se materializan **bajo
+  demanda** (uno u otro, o ambos). Se **fusionan**, no sobrescriben, el
+  `.kiro/settings/mcp.json`.
+- Son **independientes** del MCP `estandares` (solo lectura) que usa el agente
+  consultor para apuntar al repo de estándares; ese se instala con el Power
+  `power-consultor-estandares` y no se mezcla con el `github` de desarrollo.
+- El token de GitHub nunca va en texto plano: variable de entorno.
+
+---
+
 ## [1.1.0] — 2026-09-26
 
 Añade agentes y hooks al catálogo (37 artefactos: 24 steering + 7 skills +
@@ -97,5 +120,6 @@ Versión inicial del catálogo con 31 artefactos (24 steering + 7 skills).
 - Varios artefactos conservan marcadores `⚠️ COMPLETAR` para datos propios de la
   consultora (identidad, tarifas, rol aprobador de QA, ruta documental de proyectos).
 
+[1.2.0]: #120--2026-09-26
 [1.1.0]: #110--2026-09-26
 [1.0.0]: #100--2026-09-26
