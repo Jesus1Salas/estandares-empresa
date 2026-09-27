@@ -1,0 +1,116 @@
+/* ===================================================================
+   Estilos corporativos para documentos comerciales (PDF)
+   Editar las variables de abajo para personalizar marca/tipografía.
+   =================================================================== */
+:root {
+  --color-primario: #0B3D91;
+  --color-secundario: #1565C0;
+  --color-acento: #0B8457;
+  --color-texto: #1f2933;
+  --color-tenue: #52606d;
+  --color-borde: #d9e2ec;
+  --color-fondo-suave: #f5f7fa;
+  --fuente-titulos: "Segoe UI", "Calibri", Arial, sans-serif;
+  --fuente-texto: "Segoe UI", "Calibri", Arial, sans-serif;
+  --fuente-mono: "Cascadia Mono", "Consolas", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--fuente-texto);
+  color: var(--color-texto);
+  font-size: 11pt;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------- Portada ---------- */
+.portada {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  page-break-after: always;
+  background: linear-gradient(160deg, #ffffff 0%, var(--color-fondo-suave) 100%);
+}
+.portada .logo { max-width: 260px; margin-bottom: 40px; }
+.portada h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 30pt;
+  color: var(--color-primario);
+  margin: 0 0 8px;
+  border: none;
+}
+.portada .subtitulo { font-size: 14pt; color: var(--color-secundario); font-weight: 600; }
+.portada .meta {
+  margin-top: 48px;
+  font-size: 11pt;
+  color: var(--color-tenue);
+  line-height: 1.9;
+}
+.portada .clasificacion {
+  margin-top: 40px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-primario);
+  border-radius: 4px;
+  color: var(--color-primario);
+  font-size: 9pt;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ---------- Contenido ---------- */
+.contenido { padding: 0 8px; }
+
+h1, h2, h3, h4 { font-family: var(--fuente-titulos); color: var(--color-primario); line-height: 1.25; }
+h1 { font-size: 20pt; border-bottom: 3px solid var(--color-primario); padding-bottom: 6px; margin-top: 28px; page-break-before: always; }
+h1:first-of-type { page-break-before: avoid; }
+h2 { font-size: 15pt; color: var(--color-secundario); margin-top: 22px; border-bottom: 1px solid var(--color-borde); padding-bottom: 4px; }
+h3 { font-size: 12.5pt; margin-top: 16px; }
+h4 { font-size: 11pt; color: var(--color-tenue); }
+
+p { margin: 8px 0; }
+a { color: var(--color-secundario); text-decoration: none; }
+
+/* Tablas */
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 10pt; page-break-inside: avoid; }
+th, td { border: 1px solid var(--color-borde); padding: 7px 10px; text-align: left; vertical-align: top; }
+th { background: var(--color-primario); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--color-fondo-suave); }
+
+/* Alineación de columnas numéricas en cotizaciones */
+td.num, th.num { text-align: right; white-space: nowrap; }
+
+/* Fila de total destacada */
+.total-row td { background: var(--color-acento) !important; color: #fff; font-weight: 700; }
+
+/* Código */
+code { font-family: var(--fuente-mono); background: var(--color-fondo-suave); padding: 1px 5px; border-radius: 3px; font-size: 9.5pt; }
+pre {
+  font-family: var(--fuente-mono);
+  background: #0f2440;
+  color: #e6edf3;
+  padding: 14px 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 9pt;
+  line-height: 1.45;
+  page-break-inside: avoid;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+
+/* Avisos PENDIENTE / revisión */
+blockquote {
+  border-left: 4px solid #f0a202;
+  background: #fff8e6;
+  margin: 10px 0;
+  padding: 8px 14px;
+  color: #7a5b00;
+  font-size: 10pt;
+}
+
+/* Listas */
+ul, ol { margin: 8px 0 8px 22px; }

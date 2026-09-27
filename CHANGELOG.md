@@ -1,0 +1,74 @@
+# Changelog — Estándares de la empresa
+
+Historial de cambios del repositorio de estándares (`estandares-empresa`), la
+fuente de verdad de convenciones, skills y configuraciones de la consultora.
+
+El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.1.0/) y los
+artefactos usan **versionado semántico** individual en `catalog.json`:
+
+- **MAJOR**: cambio incompatible que obliga a migrar.
+- **MINOR**: añade contenido de forma retrocompatible.
+- **PATCH**: correcciones de redacción o ajustes menores.
+
+> Cada PR que agrega o modifica un artefacto debe subir su `version` en
+> `catalog.json` y añadir una entrada aquí.
+
+---
+
+## [1.0.0] — 2026-09-26
+
+Versión inicial del catálogo con 31 artefactos (24 steering + 7 skills).
+
+### Añadido
+
+**Steering — Global / Técnico (AWS + Python)**
+- `steering.global.programming-patterns` (1.0.0) — Convenciones de codificación Python/PySpark.
+- `steering.global.commits-and-pull-requests` (1.0.0) — Conventional Commits y PRs.
+- `steering.global.arquitectura-aws` (1.0.0) — Well-Architected, región us-east-1, dev/qa/prod, tags.
+- `steering.global.seguridad-devsecops` (1.0.0) — Secretos, IAM, cifrado KMS, SAST/SCA, vulnerabilidades (7/30/90).
+- `steering.infra.cloudformation` (1.0.0) — Plantillas CloudFormation en YAML.
+- `steering.infra.architecture-diagrams` (1.0.0) — Diagramas de arquitectura AWS.
+
+**Steering — Datos**
+- `steering.datos.ingenieria-datos` (1.0.0) — ETL/PySpark, capas raw/curated/data-product, Glue Catalog.
+- `steering.datos.calidad-datos` (1.0.0) — Dimensiones de calidad, validaciones y cuarentena.
+
+**Steering — Gestión de proyectos**
+- `steering.pmo.gestion-proyectos` (1.0.0) — Scrum, estados, reportes, riesgos y change requests.
+
+**Steering — Comercial**
+- `steering.comercial.perfil-empresa-servicios` (1.0.0) — Perfil y catálogo de servicios.
+- `steering.comercial.tono-estilo-comercial` (1.0.0) — Voz de marca comercial.
+- `steering.comercial.estructura-propuestas` (1.0.0) — Estructura de propuestas/SOW.
+- `steering.comercial.politica-precios-cotizacion` (1.0.0) — Política de precios y cotización.
+- `steering.comercial.legal-cumplimiento-comercial` (1.0.0) — Legal y cumplimiento comercial.
+- `steering.comercial.datos-privacidad-comercial` (1.0.0) — Privacidad de clientes y prospectos.
+- `steering.comercial.glosario-nomenclatura-comercial` (1.0.0) — Glosario y nombres de archivo.
+
+**Steering — QA**
+- `steering.qa.estrategia-pruebas` (1.0.0) — Estrategia, pirámide y cobertura (pytest/moto).
+- `steering.qa.definicion-hecho-aceptacion` (1.0.0) — DoD y criterios de aceptación.
+- `steering.qa.convenciones-casos-prueba` (1.0.0) — Anatomía y nomenclatura de casos.
+- `steering.qa.gestion-defectos` (1.0.0) — Reporte de bugs, severidad y SLA.
+- `steering.qa.automatizacion-pruebas` (1.0.0) — Frameworks AWS+Python y CI.
+- `steering.qa.datos-entornos-prueba` (1.0.0) — Datos sintéticos y entornos dev/qa/prod.
+- `steering.qa.criterios-entrada-salida` (1.0.0) — Test gates (95% ejecución / 90% pass).
+- `steering.qa.qa-no-funcional` (1.0.0) — Performance, seguridad y accesibilidad.
+
+**Skills**
+- `skill.global.manual-tecnico-operativo` (1.0.0) — Manual Técnico-Operativo (MD + PDF).
+- `skill.comercial.propuesta-comercial` (1.0.0) — Propuesta/SOW (MD + PDF).
+- `skill.comercial.cotizacion-comercial` (1.0.0) — Cotización (MD + PDF).
+- `skill.comercial.minuta-reunion-comercial` (1.0.0) — Minuta de reunión (MD + PDF).
+- `skill.qa.generador-casos-prueba` (1.0.0) — Casos de prueba (MD + PDF).
+- `skill.qa.reporte-ejecucion-pruebas` (1.0.0) — Reporte de ejecución / QA sign-off (MD + PDF).
+- `skill.qa.matriz-trazabilidad` (1.0.0) — Matriz de trazabilidad RTM (MD + PDF).
+
+### Notas
+
+- Contexto tecnológico transversal: **AWS + Python**, entornos **dev/qa/prod**,
+  región **us-east-1**, IaC en **CloudFormation**, metodología **Scrum**.
+- Varios artefactos conservan marcadores `⚠️ COMPLETAR` para datos propios de la
+  consultora (identidad, tarifas, rol aprobador de QA, ruta documental de proyectos).
+
+[1.0.0]: #100--2026-09-26
