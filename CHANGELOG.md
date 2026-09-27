@@ -15,6 +15,32 @@ artefactos usan **versionado semántico** individual en `catalog.json`:
 
 ---
 
+## [1.1.0] — 2026-09-26
+
+Añade agentes y hooks al catálogo (37 artefactos: 24 steering + 7 skills +
+3 agentes + 3 hooks).
+
+### Añadido
+
+**Agentes**
+- `agent.comercial.agente-comercial` (1.0.0) — Orquesta las skills comerciales (propuesta, cotización, minuta).
+- `agent.qa.agente-qa` (1.0.0) — Orquesta las skills de QA y mantiene la trazabilidad requisito/caso/defecto.
+- `agent.datos.revisor-datos` (1.0.0) — Auditor de solo lectura del código de ingeniería de datos (estructura, patrones, calidad, seguridad); emite informe con veredicto.
+
+**Hooks**
+- `hook.global.cargar-contexto` (1.0.0) — SessionStart: vuelca el contexto de sesiones previas al iniciar.
+- `hook.global.generar-contexto-sesion` (1.0.0) — Stop: resume la sesión y la acumula en el histórico de contexto.
+- `hook.global.log-trabajo` (1.0.0) — PostToolUse: registra cada escritura en un log de trabajo con timestamp.
+
+### Notas
+
+- Los agentes dependen de que las skills que orquestan estén materializadas en el
+  proyecto consumidor (`resources` con `skill://.kiro/skills/...`).
+- Los hooks de contexto/log producen bitácora **local** (`.kiro/contexto/`,
+  `.kiro/CHANGELOG-trabajo.md`), que no se versiona en el repo consumidor.
+
+---
+
 ## [1.0.0] — 2026-09-26
 
 Versión inicial del catálogo con 31 artefactos (24 steering + 7 skills).
@@ -71,4 +97,5 @@ Versión inicial del catálogo con 31 artefactos (24 steering + 7 skills).
 - Varios artefactos conservan marcadores `⚠️ COMPLETAR` para datos propios de la
   consultora (identidad, tarifas, rol aprobador de QA, ruta documental de proyectos).
 
+[1.1.0]: #110--2026-09-26
 [1.0.0]: #100--2026-09-26

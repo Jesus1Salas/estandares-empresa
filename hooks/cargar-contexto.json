@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Cargar contexto al iniciar",
+      "trigger": "SessionStart",
+      "description": "Al iniciar la sesión, vuelca el contenido de .kiro/contexto/contexto-sesion.md (las últimas entradas) para retomar el trabajo donde quedó.",
+      "action": {
+        "type": "command",
+        "command": "powershell -NoProfile -Command \"$in=[Console]::In.ReadToEnd(); $root=(Get-Location).Path; try{ if($in){ $o=ConvertFrom-Json $in; if($o.cwd){$root=$o.cwd} } }catch{}; $ctx=Join-Path $root '.kiro/contexto/contexto-sesion.md'; if(-not (Test-Path $ctx)){ Write-Output 'No hay contexto de sesiones previo en este proyecto.'; exit 0 }; $content=Get-Content -Raw $ctx; $lines=Get-Content $ctx; Write-Output '=== CONTEXTO DE SESIONES PREVIAS (.kiro/contexto/contexto-sesion.md) ==='; if($lines.Count -gt 120){ Write-Output '(mostrando las ultimas 120 lineas del historico)'; ($lines | Select-Object -Last 120) -join [Environment]::NewLine } else { $content }; Write-Output '=== FIN DEL CONTEXTO ==='; exit 0\""
+      }
+    }
+  ]
+}

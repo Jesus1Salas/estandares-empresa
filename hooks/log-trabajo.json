@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Log de trabajo (changelog)",
+      "trigger": "PostToolUse",
+      "description": "Registra una línea con timestamp y el archivo modificado en .kiro/CHANGELOG-trabajo.md cada vez que se escribe un archivo (fs_write/str_replace/fs_append).",
+      "matcher": "fs_write|str_replace|fs_append",
+      "action": {
+        "type": "command",
+        "command": "powershell -NoProfile -Command \"$in=[Console]::In.ReadToEnd(); $root=(Get-Location).Path; $tool=''; $file=''; try{ if($in){ $o=ConvertFrom-Json $in; if($o.cwd){$root=$o.cwd}; if($o.tool_name){$tool=$o.tool_name}; if($o.tool_input){ if($o.tool_input.path){$file=$o.tool_input.path} elseif($o.tool_input.targetFile){$file=$o.tool_input.targetFile} } } }catch{}; $dir=Join-Path $root '.kiro'; if(-not (Test-Path $dir)){ New-Item -ItemType Directory -Force -Path $dir | Out-Null }; $log=Join-Path $dir 'CHANGELOG-trabajo.md'; if(-not (Test-Path $log)){ Set-Content -Path $log -Value '# Changelog de trabajo (bitacora automatica)' -Encoding utf8 }; $ts=Get-Date -Format 'yyyy-MM-dd HH:mm:ss'; if(-not $file){$file='(desconocido)'}; if(-not $tool){$tool='escritura'}; Add-Content -Path $log -Value ('- ' + $ts + ' | ' + $tool + ' | ' + $file) -Encoding utf8; exit 0\""
+      }
+    }
+  ]
+}

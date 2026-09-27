@@ -20,13 +20,15 @@ metodología **Scrum**.
 estandares-empresa/
 ├── steering/          Convenciones y contexto persistente (Markdown)
 ├── skills/            Procedimientos repetibles (carpeta por skill)
+├── agents/            Agentes dedicados reutilizables (Markdown)
+├── hooks/             Automatizaciones por evento (JSON)
 ├── catalog.json       Índice: qué hay, versión, categoría, destino, descripción
 ├── CHANGELOG.md       Historial de cambios de los estándares
 └── README.md          Este archivo
 ```
 
-> Según la guía (Opción A), este repo puede crecer con `agents/`, `hooks/`,
-> `mcp/` y `plantillas/`. Hoy contiene `steering/` y `skills/`.
+> Según la guía (Opción A), este repo puede crecer con `mcp/` y `plantillas/`.
+> Hoy contiene `steering/`, `skills/`, `agents/` y `hooks/`.
 
 ## Contenido actual
 
@@ -35,6 +37,10 @@ estandares-empresa/
   comercial y QA.
 - **7 skills** — manual técnico, comercial (propuesta, cotización, minuta) y QA
   (casos de prueba, reporte de ejecución, matriz de trazabilidad).
+- **3 agentes** — comercial (orquesta skills comerciales), QA (orquesta skills de
+  QA), revisor de datos (audita código de ingeniería de datos).
+- **3 hooks** — cargar contexto (SessionStart), generar contexto de sesión (Stop)
+  y log de trabajo (PostToolUse).
 
 El detalle vive en [`catalog.json`](./catalog.json).
 
@@ -47,7 +53,7 @@ y describe:
 | Campo | Significado |
 |-------|-------------|
 | `id` | Identificador estable, clave del artefacto |
-| `tipo` | `steering` \| `skill` (a futuro `agent`, `hook`, `mcp`, `plantilla`, `doc`) |
+| `tipo` | `steering` \| `skill` \| `agent` \| `hook` (a futuro `mcp`, `plantilla`, `doc`) |
 | `ambito` | `global` \| `infra` \| `datos` \| `qa` \| `comercial` \| `pmo` |
 | `obligatoriedad` | `obligatorio` \| `recomendado` \| `opcional` |
 | `version` | Versión semántica propia del artefacto |

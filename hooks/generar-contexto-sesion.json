@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Generar contexto de sesión",
+      "trigger": "Stop",
+      "description": "Al terminar la sesión, resume lo trabajado y lo AGREGA (histórico) a .kiro/contexto/contexto-sesion.md sin sobrescribir lo anterior.",
+      "action": {
+        "type": "agent",
+        "prompt": "Estás cerrando una sesión de trabajo. Genera un resumen breve de ESTA sesión y AGRÉGALO (append, sin borrar lo existente) al archivo .kiro/contexto/contexto-sesion.md. Si el archivo o la carpeta .kiro/contexto/ no existen, créalos, y en la primera creación añade el encabezado \"# Contexto de sesiones (histórico)\".\n\nCada entrada nueva debe ir al final del archivo con este formato exacto:\n\n## Sesión — <fecha y hora actual en formato YYYY-MM-DD HH:mm>\n- **Objetivo:** <qué se pidió en la sesión, 1 línea>\n- **Hecho:** <acciones concretas realizadas, viñetas>\n- **Archivos afectados:** <rutas creadas/modificadas; \"ninguno\" si no hubo>\n- **Decisiones:** <decisiones relevantes tomadas; \"ninguna\" si no aplica>\n- **Pendiente / próximos pasos:** <lo que queda por hacer; \"nada\" si no hay>\n\nReglas:\n- SIEMPRE agrega una entrada nueva al final; NUNCA sobrescribas ni edites entradas anteriores (es un histórico acumulativo).\n- Sé conciso y factual; no inventes trabajo que no ocurrió.\n- No incluyas secretos, credenciales ni datos sensibles en el resumen.\n- Este archivo es bitácora local del proyecto (está en .gitignore); no lo subas al repositorio de estándares."
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "actualizado": "2026-09-26",
-  "descripcion": "Catalogo de estandares de la consultora (AWS + Python). Indice de steering y skills disponibles para consultar y materializar en los proyectos consumidores.",
+  "descripcion": "Catalogo de estandares de la consultora (AWS + Python). Indice de steering, skills, agentes y hooks disponibles para consultar y materializar en los proyectos consumidores.",
   "artefactos": [
     {
       "id": "steering.global.programming-patterns",
@@ -374,6 +374,78 @@
       "materializable": true,
       "descripcion": "Genera una matriz de trazabilidad (RTM) que mapea requisitos a casos de prueba y resultados, calcula cobertura y detecta requisitos sin cobertura y casos huerfanos; Markdown y PDF.",
       "palabras_clave": ["matriz", "trazabilidad", "rtm", "cobertura", "requisitos", "qa", "pdf"]
+    },
+    {
+      "id": "agent.comercial.agente-comercial",
+      "tipo": "agent",
+      "ambito": "comercial",
+      "obligatoriedad": "opcional",
+      "version": "1.0.0",
+      "ruta": "agents/agente-comercial.md",
+      "destino": ".kiro/agents/agente-comercial.md",
+      "materializable": true,
+      "descripcion": "Agente asistente del area comercial: orquesta las skills de propuesta, cotizacion y minuta, encadenando el flujo y manteniendo coherencia de cliente, precios y tono. Requiere las skills comerciales materializadas.",
+      "palabras_clave": ["agente", "comercial", "propuesta", "cotizacion", "minuta", "orquestador"]
+    },
+    {
+      "id": "agent.qa.agente-qa",
+      "tipo": "agent",
+      "ambito": "qa",
+      "obligatoriedad": "opcional",
+      "version": "1.0.0",
+      "ruta": "agents/agente-qa.md",
+      "destino": ".kiro/agents/agente-qa.md",
+      "materializable": true,
+      "descripcion": "Agente ingeniero de QA que lleva el ciclo completo: orquesta las skills de casos de prueba, reporte de ejecucion y matriz de trazabilidad, manteniendo la trazabilidad entre requisitos, casos (TC-...) y defectos (BUG-...). Requiere las skills de QA materializadas.",
+      "palabras_clave": ["agente", "qa", "casos", "ejecucion", "trazabilidad", "orquestador"]
+    },
+    {
+      "id": "agent.datos.revisor-datos",
+      "tipo": "agent",
+      "ambito": "datos",
+      "obligatoriedad": "recomendado",
+      "version": "1.0.0",
+      "ruta": "agents/revisor-datos.md",
+      "destino": ".kiro/agents/revisor-datos.md",
+      "materializable": true,
+      "descripcion": "Agente auditor (solo lectura) del codigo de ingenieria de datos AWS+PySpark: revisa estructura, patrones, diseno de pipeline, rendimiento, calidad de datos y seguridad contra los estandares, y emite un informe con veredicto. No modifica codigo.",
+      "palabras_clave": ["agente", "revisor", "auditor", "datos", "pyspark", "seguridad", "calidad", "revision"]
+    },
+    {
+      "id": "hook.global.cargar-contexto",
+      "tipo": "hook",
+      "ambito": "global",
+      "obligatoriedad": "opcional",
+      "version": "1.0.0",
+      "ruta": "hooks/cargar-contexto.json",
+      "destino": ".kiro/hooks/cargar-contexto.json",
+      "materializable": true,
+      "descripcion": "Hook SessionStart que vuelca el contexto de sesiones previas (.kiro/contexto/contexto-sesion.md) al iniciar, para retomar el trabajo donde quedo.",
+      "palabras_clave": ["hook", "contexto", "sessionstart", "sesion", "bitacora"]
+    },
+    {
+      "id": "hook.global.generar-contexto-sesion",
+      "tipo": "hook",
+      "ambito": "global",
+      "obligatoriedad": "opcional",
+      "version": "1.0.0",
+      "ruta": "hooks/generar-contexto-sesion.json",
+      "destino": ".kiro/hooks/generar-contexto-sesion.json",
+      "materializable": true,
+      "descripcion": "Hook Stop que resume la sesion y la agrega (historico acumulativo) a .kiro/contexto/contexto-sesion.md al terminar.",
+      "palabras_clave": ["hook", "contexto", "stop", "resumen", "sesion", "bitacora"]
+    },
+    {
+      "id": "hook.global.log-trabajo",
+      "tipo": "hook",
+      "ambito": "global",
+      "obligatoriedad": "opcional",
+      "version": "1.0.0",
+      "ruta": "hooks/log-trabajo.json",
+      "destino": ".kiro/hooks/log-trabajo.json",
+      "materializable": true,
+      "descripcion": "Hook PostToolUse que registra en .kiro/CHANGELOG-trabajo.md una linea con timestamp, herramienta y archivo cada vez que se escribe un archivo (fs_write/str_replace/fs_append).",
+      "palabras_clave": ["hook", "log", "changelog", "posttooluse", "bitacora", "auditoria"]
     }
   ]
 }
